@@ -9,7 +9,7 @@ No, no need to install anything. We just use everything from CDN.
 Why? Do you want the `npm install` things hahaha. No need to do that, even we don't need web server to run the html file.
 
 ## What is Redux?
-Redux is predictable state management bla bla bla, waitttt.... just go to https://redux.js.org/
+Redux is predictable state management bla bla bla, waitttt.... just go to https://redux.js.org/. All respect to Redux team that makes the product great.
 
 ## What is included in this repo?
 
