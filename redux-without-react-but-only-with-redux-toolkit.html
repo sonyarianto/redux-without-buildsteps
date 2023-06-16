@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux without Build Steps (without "React" feat. only "Redux" and "Redux Toolkit")</title>
+    <script src="https://cdn.jsdelivr.net/npm/redux@4.2.1/dist/redux.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@reduxjs/toolkit@1.9.5/dist/redux-toolkit.umd.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Define the counter slice
+        
+            const counterSlice = RTK.createSlice({
+                name: 'counter',
+                initialState: 0,
+                reducers: {
+                    increment: (state) => state + 1, // state is the current state and state + 1 is the new state
+                    decrement: (state) => state - 1, // state is the current state and state - 1 is the new state
+                },
+            });
+
+            // Create the Redux store with the counter slice
+            
+            const store = RTK.configureStore({
+                reducer: counterSlice.reducer,
+            });
+
+            // Function to update the counter value in the DOM
+            
+            function updateCounterValue() {
+                const counterValue = store.getState();
+                document.getElementById('counter').textContent = counterValue;
+            }
+
+            // Subscribe to store updates and update the DOM
+            
+            store.subscribe(updateCounterValue);
+
+            // Render the initial counter value
+            
+            updateCounterValue();
+
+            // Make the functions globally accessible
+            
+            window.handleIncrementClick = () => store.dispatch(counterSlice.actions.increment());
+            window.handleDecrementClick = () => store.dispatch(counterSlice.actions.decrement());
+        });
+    </script>
+
+    <h1>Redux without Build Steps (without "React" feat. only "Redux" and "Redux Toolkit")</h1>
+    <button onclick="handleDecrementClick()">-</button>
+    <span id="counter"></span>
+    <button onclick="handleIncrementClick()">+</button>
+</body>
+
+</html>

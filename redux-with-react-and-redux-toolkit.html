@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Redux without Build Steps (feat. "react", "react-redux" and "redux-toolkit")</title>
+    <title>Redux without Build Steps (feat. "react" and "redux-toolkit")</title>
     <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/redux@4.2.1/dist/redux.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/react-redux@8.1.0/dist/react-redux.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@reduxjs/toolkit@1.9.5/dist/redux-toolkit.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.5/babel.min.js"></script>
 </head>
@@ -47,12 +46,23 @@
         // The App component
 
         function App() {
-            const counter = ReactRedux.useSelector((state) => state.counter.value);
-            const dispatch = ReactRedux.useDispatch();
+            const counter = store.getState().counter.value;
+            const dispatch = store.dispatch;
+
+            // Subscribe to store updates
+
+            store.subscribe(() => {
+                ReactDOM.render(
+                <React.StrictMode>
+                    <App />
+                </React.StrictMode>,
+                document.getElementById('root')
+                );
+            });
 
             return (
                 <div>
-                    <h1>Redux without build steps (feat. "react", "react-redux" and "redux-toolkit")</h1>
+                    <h1>Redux without build steps (feat. "react" and "redux-toolkit")</h1>
                     
                     <button onClick={() => dispatch(counterSlice.actions.decrement())}>-</button>
                     <span> {counter} </span>
@@ -65,9 +75,7 @@
 
         ReactDOM.render(
             <React.StrictMode>
-                <ReactRedux.Provider store={store}>
-                    <App />
-                </ReactRedux.Provider>
+                <App />
             </React.StrictMode>,
             document.getElementById('root')
         );

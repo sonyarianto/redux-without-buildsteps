@@ -53,12 +53,12 @@
 
         // App component
 
-        function App({ state, decrement, increment }) {
+        function App({ counter, decrement, increment }) {
             return (
                 <div>
                     <h1>Redux without build steps (feat. "react" and "react-redux")</h1>
                     <button onClick={decrement}>-</button>
-                    <span>&nbsp;{state}&nbsp;</span>
+                    <span> {counter} </span>
                     <button onClick={increment}>+</button>
                 </div>
             );
@@ -68,7 +68,7 @@
 
         function mapStateToProps(state) {
             return {
-                state: state
+                counter: state
             };
         }
 

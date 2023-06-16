@@ -68,13 +68,13 @@
                 store.dispatch({ type: 'INCREMENT' });
             };
 
-            const state = store.getState();
+            const counter = store.getState();
 
             return (
                 <div>
                     <h1>Redux without build steps (feat. "react")</h1>
                     <button onClick={decrement}>-</button>
-                    <span>&nbsp;{state}&nbsp;</span>
+                    <span> {counter} </span>
                     <button onClick={increment}>+</button>
                 </div>
             );

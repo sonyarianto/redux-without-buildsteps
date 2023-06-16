@@ -19,7 +19,9 @@ I have 3 (three) files here, no need `npm install` or anything, just html files 
 
 - `redux-with-react.html`, show you Redux with React, basically the old school Redux.
 - `redux-with-react-and-react-redux.html`, show you Redux with React and React Redux (the React binding to Redux).
+- `redux-with-react-and-redux-toolkit.html`, show you modern Redux, using React and Redux Toolkit only.
 - `redux-with-react-and-react-redux-and-redux-toolkit.html`, show you modern Redux nowdays, using React, React Redux and Redux Toolkit (this is the recommended way today).
+- `redux-without-react-but-only-with-redux-toolkit.html`, show you how to use Redux Toolkit without React, just pure Redux and Redux Toolkit.
 
 ## License
 
