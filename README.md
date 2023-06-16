@@ -1,3 +1,5 @@
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsonyarianto%2Fredux-without-buildsteps)
+
 # redux-without-buildsteps
 
 Learning Redux sometimes hard, even still hard for me, even harder if we just learn and never use it. That's why I create simple example on this repository about using Redux and remove all complexity, just pure how it works, no CSS things, no import things, no `npm install` things, just sit, read, analyze and focus. Every sample is on its own HTML file and on that each single file will contains all code.
