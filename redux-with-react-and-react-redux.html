@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Redux without Build Steps (feat. "react" and "react-redux")</title>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/redux@4.2.1/dist/redux.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-redux@8.1.0/dist/react-redux.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.5/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" data-presets="env,react">
+        // Define the reducer
+
+        function reducer(state = 0, action) {
+            switch (action.type) {
+                case 'INCREMENT':
+                    return state + 1;
+                case 'DECREMENT':
+                    return state - 1;
+                default:
+                    return state;
+            }
+        }
+
+        // Define the store enhancer
+
+        function storeEnhancer(createStoreApi) {
+            return function (reducer, initialState) {
+                const reduxStore = createStoreApi(reducer, initialState);
+                return {
+                    ...reduxStore,
+                    subscribe(fn) {
+                        fn(reduxStore.getState());
+
+                        return reduxStore.subscribe(() => {
+                            fn(reduxStore.getState());
+                        });
+                    },
+                };
+            };
+        }
+
+        // Create the Redux store with the reducer and enhancer
+
+        const enhancedStore = storeEnhancer(Redux.createStore);
+        const store = enhancedStore(reducer, 0);
+
+        // App component
+
+        function App({ state, decrement, increment }) {
+            return (
+                <div>
+                    <h1>Redux without build steps (feat. `react` and `react-redux`)</h1>
+                    <button onClick={decrement}>-</button>
+                    <span>&nbsp;{state}&nbsp;</span>
+                    <button onClick={increment}>+</button>
+                </div>
+            );
+        }
+
+        // Map state and dispatch to props
+
+        function mapStateToProps(state) {
+            return {
+                state: state
+            };
+        }
+
+        function mapDispatchToProps(dispatch) {
+            return {
+                decrement: () => dispatch({ type: 'DECREMENT' }),
+                increment: () => dispatch({ type: 'INCREMENT' })
+            };
+        }
+
+        // Connect the component to the Redux store
+
+        const ConnectedApp = ReactRedux.connect(mapStateToProps, mapDispatchToProps)(App);
+
+        // Render the ConnectedHome component
+        
+        ReactDOM.render(
+            <React.StrictMode>
+                <ConnectedApp store={store} />
+            </React.StrictMode>,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+
+</html>
