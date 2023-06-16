@@ -6,7 +6,7 @@ Learning Redux sometimes hard, even still hard for me, even harder if we just le
 No, no need to install anything. We just use everything from CDN.
 
 ## Should I do the `npm install` things?
-Why? No need to do that, even we don't need web server to run the html file.
+Why? Do you want the `npm install` things hahaha. No need to do that, even we don't need web server to run the html file.
 
 ## What is Redux?
 Redux is predictable state management bla bla bla, waitttt.... just go to https://redux.js.org/
