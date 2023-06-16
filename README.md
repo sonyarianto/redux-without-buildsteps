@@ -1,6 +1,6 @@
 # redux-without-buildsteps
 
-Learning Redux sometimes hard, even still hard for me, even harder if we just learn and never use it. That's why I create simple example on this repository about using Redux and remove all complexity, just pure how it works, no CSS things, no import things, no npm install things, just sit, read, analyze and focus.
+Learning Redux sometimes hard, even still hard for me, even harder if we just learn and never use it. That's why I create simple example on this repository about using Redux and remove all complexity, just pure how it works, no CSS things, no import things, no `npm install` things, just sit, read, analyze and focus. Every sample is on its own HTML file and on that each single file will contains all code.
 
 ## Installation
 No, no need to install anything. We just use everything from CDN.
