@@ -20,6 +20,7 @@
                 reducers: {
                     increment: (state) => state + 1, // state is the current state and state + 1 is the new state
                     decrement: (state) => state - 1, // state is the current state and state - 1 is the new state
+                    incrementByAmount: (state, action) => state + action.payload, // state is the current state and state + action.payload is the new state
                 },
             });
 
