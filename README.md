@@ -24,11 +24,21 @@ I have 5 (five) files here at the moment. No need `npm install` or anything, jus
 - `redux-with-react-and-react-redux.html`, show you Redux with React and React Redux (the React binding to Redux).
 - `redux-with-react-and-redux-toolkit.html`, show you modern Redux, using React and Redux Toolkit only.
 - `redux-with-react-and-react-redux-and-redux-toolkit.html`, show you modern Redux nowdays, using React, React Redux and Redux Toolkit (this is the recommended way today).
-- `redux-without-react-but-only-with-redux-toolkit.html`, show you how to use Redux Toolkit without React, just pure Redux and Redux Toolkit.
+- `redux-without-react-only-with-redux-toolkit.html`, show you how to use Redux Toolkit without React, just pure Redux Toolkit (remember Redux Toolkit already includes Redux).
 
 ## Technical notes
 
 Because we use CDN version of React, React Redux and Redux Toolkit, we need to use `window.React`, `window.ReactRedux` and `window.RTK` to access the library. So if you want to use React, React Redux and Redux Toolkit, you need to use `window.React`, `window.ReactRedux` and `window.RTK` to access the library.
+
+## FAQs
+
+- **Is React Redux required to use Redux?** No, you can use Redux without React Redux. React Redux is just a binding between React and Redux. You can use Redux with any other UI library or even without UI library.
+- **Is Redux Toolkit required to use Redux?** No, you can use Redux without Redux Toolkit. Redux Toolkit is just a helper library to make Redux easier to use. You can use Redux without Redux Toolkit.
+- **Is React required to use Redux?** No, you can use Redux without React. Redux is just a state management library, you can use Redux with any other UI library or even without UI library.
+- **Is React Redux required to use Redux Toolkit?** No, you can use Redux Toolkit without React Redux. Redux Toolkit is just a helper library to make Redux easier to use. You can use Redux Toolkit without React Redux.
+- **Is React required to use Redux Toolkit?** No, you can use Redux Toolkit without React. Redux Toolkit is just a helper library to make Redux easier to use. You can use Redux Toolkit without React.
+- **Is React Redux required to use React?** No, you can use React without React Redux. React Redux is just a binding between React and Redux. You can use React without React Redux.
+- **Is Redux Toolkit required to use React?** No, you can use React without Redux Toolkit. Redux Toolkit is just a helper library to make Redux easier to use. You can use React without Redux Toolkit.
 
 ## License
 
